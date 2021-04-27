@@ -13116,46 +13116,21 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="California-Prison-Population-1991-2015">California Prison Population 1991-2015<a class="anchor-link" href="#California-Prison-Population-1991-2015">&#182;</a></h1><p>This is an example exploration report intended to give you a sense of the scope of Assignment 2. This particular report concerns a dataset about motion pictures. Note that the analysis is far from perfect! There are interesting follow-up questions the analysis does not pursue, and fundamental data quality and sample selection concerns that are largely overlooked. Ask yourself what you might do differently!</p>
-<p>Research on incarceration has traditionally centered on state-level data: specifically state prison populations or the statewide combined prison and jail population. Using the state as the unit of analysis is sufficient for understanding the broad contours of incarceration in the United States, but it does not provide the level of detail necessary to unpack its causes and consequences. This is because it is largely county officials-judges, prosecutors, people who manage jails-that decide how communities use incarceration (i.e., who is sent to jail and prison, and for how long). Therefore, county-level variability makes for more robust, theoretically-grounded studies of the high rates of incarceration seen across the United States.</p>
-<h2 id="Dataset:">Dataset:<a class="anchor-link" href="#Dataset:">&#182;</a></h2><p>This dataset contains statistics for a sample of 3,201 movies collected in 2010. The data includes movie titles, genres, and box office gross revenues, as well as audience (IMDB) and critic (Rotten Tomatoes) ratings. The dataset combines data from multiple sources: Rotten Tomatoes, The Numbers, and IMDB.</p>
-<p>The data is available from the vega-datasets repository as movies.json.</p>
-<p>Data comes from The Vera Institute GitHub. The raw dataset was taken from their GitHub - it is in a wide format and if you are keen on really flexing your data munging skills it is a worthy adversary! The truly raw data is seen here. My full code to reproduce the summary level datasets seen below can be found here, you can adapt this minorly to get more data from the original wide dataset.</p>
-<p>Alternatively, if you don't want to spend the bulk of your time tidying data - I provided summary level and a subset of some tidy county-level data for you to play around with and visualize.</p>
-<p>These data are from the Vera Institute of Justice, and they wrote several deep-dive articles on the information found. At the most basic level - these data are County-level jail data (1970-2015) and prison data (1983-2015) for the USA.</p>
-<p>I chose this dataset as there are still racial and social discrepancies prevalent throughout the world and in the USA. I thought it was fitting to dive into some "Data for Good" on Martin Luther King Jr. Day as a way to shine light on racial discrepencies in the US prison system.</p>
-<p>Please use your best judgement, be respectful and careful when reporting on trends seen in this dataset.</p>
-<p>In December 2015, Vera released the Incarceration Trends data tool (<a href="http://trends.vera.org">http://trends.vera.org</a>) and the companion publication In Our Own Backyard: Confronting Growth and Disparities in American Jails. This work employed two Bureau of Justice Statistics (BJS) data collections: the Census of Jails (COJ), which covers all jails and is conducted every five to eight years since 1970, and the Annual Survey of Jails (ASJ), which covers about one-third of jails-and includes nearly all of the largest jails-that has been conducted in non-census years since 1982. This project was funded by the Robert W. Wilson Charitable Trust.</p>
-<p>In 2016-2018, through a grant from the MacArthur Foundation Safety and Justice Challenge, Vera updated the data tool to include newly released data from the 2013 COJ and 2015 ASJ and developed four publications:</p>
-<p>Overlooked: Women and Jails in an Era of Reform
-Out of Sight: The Growth of Jails in Rural America
-Divided Justice: Trends in Black and White Incarceration 1990-2013
-The New Dynamics of Mass Incarceration
-In 2018, through the In Our Backyards grant from Google.org, Vera completed work on a companion county-level prison dataset, examined in The New Dynamics of Mass Incarceration, that drew on the BJS National Corrections Reporting Program (NCRP) data collection. Vera then merged this data with the original jails dataset to produce a first-in-kind national dataset that can examine both jail and prison incarceration at the county level.</p>
+<h1 id="Incarcerated-California-Population-1991-2015">Incarcerated California Population 1991-2015<a class="anchor-link" href="#Incarcerated-California-Population-1991-2015">&#182;</a></h1><p>Incarceration data has typically been collected at the state-level, but this data is insufficient to understand local trends in incarceration. Individuals integral to incarceration pipeline (i.e. officiers,judges, lawyers, etc.) all act at the county instead of the state level. Therefore, it is important to investigate incarceration rates at the sub-state (i.e. geographic area, urbanicity, and county) level.</p>
+<p>In this assignment we will investigate incarcerations in the state of California between 1991 and 2015 at the sub-state level.</p>
+<h2 id="Dataset:">Dataset:<a class="anchor-link" href="#Dataset:">&#182;</a></h2><p>The dataset contains county-level incarceration and population statistics (11400 samples) for the state of California between 1991-2015. Every county has been categorized according to urbanicity (i.e. urban, mid-small, suburban, and rural) and geographic area (i.e. Bay Area, Central Coast, Southern California Coastal, etc.). The total number of individuals aged 15-64 and the number of incarcerated individuals in each population category (i.e. race, gender, Total) have been recorded.</p>
+<p>The dataset was obtained from a member of the <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-22">r for data science community</a>, who tidied data published by the <a href="https://www.vera.org/">Vera Institute of Justice</a> on <a href="https://github.com/vera-institute/incarceration-trends">github</a>. The original dataset was aggregated from county-level jail data (1970-2015) and prison data (1983-2015) across the United States. Explaination about dataset curation can be found under the subsection Incarceration Trends Data <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-22">here</a>.</p>
+<p>A subset of the original dataset corresponding to the state of California was selected to simplify the data quality check and downstream analyses. The dataset used in this assignment is available at <a href="https://github.com/babrahamson/CSE_512">my github account</a>.</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Analysis-Questions:">Analysis Questions:<a class="anchor-link" href="#Analysis-Questions:">&#182;</a></h2><p>We will begin our analysis with an investigation into the quality of our dataset (Q1). Counties with insufficient data for the subsequent analysis will be dropped from the dataset. This will be followed by an exploration into annual population (incarcerated and total) trends (Q2-3). We will conclude our analysis with an investigation in the relationship between race and incarceration (Q4-5).</p>
 <ol>
-<li>Are there any gaps in the dataset?<br>
-a. If gaps are present, identify the counties with insufficient data for subsequent analysis</li>
+<li>Are there any gaps in the dataset?</li>
 <li>Is there a relationship between the annual incarcerated and total population?</li>
 <li>Is there a relationship between urbanicity and the annual incarcerated and total population?</li>
 <li>How does race correlate with the incarcerated and aged 15-64 population?</li>
@@ -13184,14 +13159,14 @@ a. If gaps are present, identify the counties with insufficient data for subsequ
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We will begin our exploration by investigating the quality dataset. The dataset contains county-level incarceration and population data for the state of California between 1991-2015. Every county has been categorized according to urbanicity (i.e. urban, mid-small, suburban, and rural) and geographic area (i.e. Bay Area, Central Coast, Southern California Coastal, etc.). The total number of individuals aged 15-64 and the number of incarcerated individuals in each population category (i.e. race, gender, Total) have been recorded.</p>
+<p>We will begin our exploration by investigating the quality dataset.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[264]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Loading California Prison and total Population Dataset</span>
@@ -13210,7 +13185,7 @@ a. If gaps are present, identify the counties with insufficient data for subsequ
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[5]:</div>
+    <div class="prompt output_prompt">Out[264]:</div>
 
 
 
@@ -13379,13 +13354,13 @@ a. If gaps are present, identify the counties with insufficient data for subsequ
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Is-it-true-that-missing-or-null-values-are-present-in-the-dataset?">Is it true that missing or null values are present in the dataset?<a class="anchor-link" href="#Is-it-true-that-missing-or-null-values-are-present-in-the-dataset?">&#182;</a></h4>
+<h3 id="Is-it-true-that-missing-or-null-values-are-present-in-the-dataset?">Is it true that missing or null values are present in the dataset?<a class="anchor-link" href="#Is-it-true-that-missing-or-null-values-are-present-in-the-dataset?">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[265]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
@@ -13401,7 +13376,7 @@ a. If gaps are present, identify the counties with insufficient data for subsequ
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[6]:</div>
+    <div class="prompt output_prompt">Out[265]:</div>
 
 
 
@@ -13419,13 +13394,13 @@ a. If gaps are present, identify the counties with insufficient data for subsequ
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Which-columns-contain-missing-or-null-values?">Which columns contain missing or null values?<a class="anchor-link" href="#Which-columns-contain-missing-or-null-values?">&#182;</a></h4>
+<h3 id="Which-columns-contain-missing-or-null-values?">Which columns contain missing or null values?<a class="anchor-link" href="#Which-columns-contain-missing-or-null-values?">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[266]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -13441,7 +13416,7 @@ a. If gaps are present, identify the counties with insufficient data for subsequ
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[7]:</div>
+    <div class="prompt output_prompt">Out[266]:</div>
 
 
 
@@ -13482,13 +13457,13 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Which-categories-are-missing-data-in-the-aged-16-64-population-and-incarcerated-population-dataset?">Which categories are missing data in the aged 16-64 population and incarcerated population dataset?<a class="anchor-link" href="#Which-categories-are-missing-data-in-the-aged-16-64-population-and-incarcerated-population-dataset?">&#182;</a></h4>
+<h3 id="Which-categories-are-missing-data-in-the-aged-16-64-population-and-incarcerated-population-dataset?">Which categories are missing data in the aged 16-64 population and incarcerated population dataset?<a class="anchor-link" href="#Which-categories-are-missing-data-in-the-aged-16-64-population-and-incarcerated-population-dataset?">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[269]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">bar_1</span><span class="o">&amp;</span><span class="n">bar_2</span>
@@ -13504,18 +13479,18 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[28]:</div>
+    <div class="prompt output_prompt">Out[269]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-865412b2f6b143c68b5bb78544a4891d"></div>
+<div id="altair-viz-0f2ac18d0e79422d9fa5e71097694be0"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-865412b2f6b143c68b5bb78544a4891d") {
-      outputDiv = document.getElementById("altair-viz-865412b2f6b143c68b5bb78544a4891d");
+    if (outputDiv.id !== "altair-viz-0f2ac18d0e79422d9fa5e71097694be0") {
+      outputDiv = document.getElementById("altair-viz-0f2ac18d0e79422d9fa5e71097694be0");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -13579,7 +13554,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Which-counties-are-missing-racial-data?">Which counties are missing racial data?<a class="anchor-link" href="#Which-counties-are-missing-racial-data?">&#182;</a></h4><p>Subsequent analysis will investigate trends in the incarceration of racial groups. Counties containing gaps in racial data will be dropped to ensure the insufficient data does not interfere with the data analysis.</p>
+<h3 id="Which-counties-are-missing-racial-data?">Which counties are missing racial data?<a class="anchor-link" href="#Which-counties-are-missing-racial-data?">&#182;</a></h3><p>Subsequent analysis will investigate trends in the incarceration of racial groups. Counties containing gaps in racial data will be dropped to ensure the insufficient data does not interfere with the data analysis.</p>
 <p>We will start this anlysis by looking at the percentage of annual incarceration data missing from each racial category per county.</p>
 
 </div>
@@ -13590,7 +13565,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[271]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">unique_null_df</span>
@@ -13606,7 +13581,7 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[43]:</div>
+    <div class="prompt output_prompt">Out[271]:</div>
 
 
 
@@ -13842,7 +13817,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[85]:</div>
+<div class="prompt input_prompt">In&nbsp;[273]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Heat_1</span>
@@ -13858,18 +13833,18 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[85]:</div>
+    <div class="prompt output_prompt">Out[273]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-542c7095130f45f1be7588cc21b2bfe8"></div>
+<div id="altair-viz-650159dd47f445a9a28f3fd36a4734cc"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-542c7095130f45f1be7588cc21b2bfe8") {
-      outputDiv = document.getElementById("altair-viz-542c7095130f45f1be7588cc21b2bfe8");
+    if (outputDiv.id !== "altair-viz-650159dd47f445a9a28f3fd36a4734cc") {
+      outputDiv = document.getElementById("altair-viz-650159dd47f445a9a28f3fd36a4734cc");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -13926,11 +13901,18 @@ dtype: int64</pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We see that the majority of counties (65%) are missing data for the incarcerated Asian and Native American population, while only 30% and 20% of counties are missing data for the incarcerated Black and Latino populations respectively.</p>
 <p>While analyzing the incarceration of racial groups, the 20 counties missing a portion of racial data will be excluded from the analysis.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Conclusions:">Conclusions:<a class="anchor-link" href="#Conclusions:">&#182;</a></h3><ol>
 <li>No gaps were present in the 'Total' aged 15-64 and incarcerated datasets</li>
 <li>All values were absent from the 'Other' racial group in the aged 15-64 dataset</li>
 <li>20 coutnies contained gaps in the incarceration by race data</li>
-<li>Due to gaps in the race categories, the 'White' popultion could not be calculated. </li>
+<li>Due to gaps in the race categories, the 'White' popultion could not be calculated.</li>
 </ol>
 
 </div>
@@ -13955,7 +13937,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[185]:</div>
+<div class="prompt input_prompt">In&nbsp;[277]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Population</span> <span class="o">&amp;</span> <span class="n">Prison_pop</span>
@@ -13971,18 +13953,18 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[185]:</div>
+    <div class="prompt output_prompt">Out[277]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-669358e1f1cd486bb5eb09fb8bb98ee1"></div>
+<div id="altair-viz-fb56224ea6de4f2d9e7d64f68a39e4c4"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-669358e1f1cd486bb5eb09fb8bb98ee1") {
-      outputDiv = document.getElementById("altair-viz-669358e1f1cd486bb5eb09fb8bb98ee1");
+    if (outputDiv.id !== "altair-viz-fb56224ea6de4f2d9e7d64f68a39e4c4") {
+      outputDiv = document.getElementById("altair-viz-fb56224ea6de4f2d9e7d64f68a39e4c4");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -14052,7 +14034,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[186]:</div>
+<div class="prompt input_prompt">In&nbsp;[278]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plotting total population (aged 15-64) and prison population by year</span>
@@ -14073,7 +14055,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[187]:</div>
+<div class="prompt input_prompt">In&nbsp;[279]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Normalized_Prison_Pop</span>
@@ -14089,18 +14071,18 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[187]:</div>
+    <div class="prompt output_prompt">Out[279]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-cd6827e9b81442d59f9be6e5388af5d7"></div>
+<div id="altair-viz-e788c350e223400eb54ccd417c6058d5"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-cd6827e9b81442d59f9be6e5388af5d7") {
-      outputDiv = document.getElementById("altair-viz-cd6827e9b81442d59f9be6e5388af5d7");
+    if (outputDiv.id !== "altair-viz-e788c350e223400eb54ccd417c6058d5") {
+      outputDiv = document.getElementById("altair-viz-e788c350e223400eb54ccd417c6058d5");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -14176,7 +14158,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[190]:</div>
+<div class="prompt input_prompt">In&nbsp;[282]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">urbanicity_line_1</span> <span class="o">+</span> <span class="n">urbanicity_scatter_1</span>
@@ -14192,18 +14174,18 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[190]:</div>
+    <div class="prompt output_prompt">Out[282]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-4b59245426814a89903ea4725086076d"></div>
+<div id="altair-viz-dd8138f11ad4454e807ee56705962a6d"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-4b59245426814a89903ea4725086076d") {
-      outputDiv = document.getElementById("altair-viz-4b59245426814a89903ea4725086076d");
+    if (outputDiv.id !== "altair-viz-dd8138f11ad4454e807ee56705962a6d") {
+      outputDiv = document.getElementById("altair-viz-dd8138f11ad4454e807ee56705962a6d");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -14276,7 +14258,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[192]:</div>
+<div class="prompt input_prompt">In&nbsp;[284]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">urbanicity_line_1_normal</span> <span class="o">+</span> <span class="n">urbanicity_point_1_normal</span>
@@ -14292,18 +14274,18 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[192]:</div>
+    <div class="prompt output_prompt">Out[284]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-3972ac53816e4ba3a9aedf95bb47993b"></div>
+<div id="altair-viz-cd0688ea8d03427085f5929fa699c741"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-3972ac53816e4ba3a9aedf95bb47993b") {
-      outputDiv = document.getElementById("altair-viz-3972ac53816e4ba3a9aedf95bb47993b");
+    if (outputDiv.id !== "altair-viz-cd0688ea8d03427085f5929fa699c741") {
+      outputDiv = document.getElementById("altair-viz-cd0688ea8d03427085f5929fa699c741");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -14365,24 +14347,37 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[286]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">urbanicity_box</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 <div class="output_wrapper">
 <div class="output">
 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[193]:</div>
+    <div class="prompt output_prompt">Out[286]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-f364ab1f2dfe4e1eb80f4088015a145a"></div>
+<div id="altair-viz-abcee943712e4a11b2750e6d5e65c07d"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-f364ab1f2dfe4e1eb80f4088015a145a") {
-      outputDiv = document.getElementById("altair-viz-f364ab1f2dfe4e1eb80f4088015a145a");
+    if (outputDiv.id !== "altair-viz-abcee943712e4a11b2750e6d5e65c07d") {
+      outputDiv = document.getElementById("altair-viz-abcee943712e4a11b2750e6d5e65c07d");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -14424,7 +14419,7 @@ dtype: int64</pre>
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "boxplot", "encoding": {"x": {"type": "quantitative", "field": "proportion"}, "y": {"type": "nominal", "field": "urbanicity"}}}, {"mark": {"type": "point", "filled": true}, "encoding": {"color": {"type": "nominal", "field": "urbanicity"}, "x": {"type": "quantitative", "axis": {"title": "Population"}, "field": "proportion"}, "y": {"type": "nominal", "axis": {"title": "Prison Population"}, "field": "urbanicity"}}}], "data": {"name": "data-f05f1658c922eecf428cedcf1b26bffe"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-f05f1658c922eecf428cedcf1b26bffe": [{"year": 1991, "urbanicity": "rural", "population": 457419.0, "prison_population": 1954.0, "proportion": 0.42717945690931075}, {"year": 1991, "urbanicity": "small/mid", "population": 3928356.0, "prison_population": 18728.0, "proportion": 0.4767388698987567}, {"year": 1991, "urbanicity": "suburban", "population": 2435009.0, "prison_population": 7941.0, "proportion": 0.32611789114537154}, {"year": 1991, "urbanicity": "urban", "population": 13380982.0, "prison_population": 69863.0, "proportion": 0.5221066734862957}, {"year": 1992, "urbanicity": "rural", "population": 465768.0, "prison_population": 2123.0, "proportion": 0.455806324178561}, {"year": 1992, "urbanicity": "small/mid", "population": 4008774.0, "prison_population": 19942.0, "proportion": 0.4974588240694038}, {"year": 1992, "urbanicity": "suburban", "population": 2482704.0, "prison_population": 8398.0, "proportion": 0.3382602195026068}, {"year": 1992, "urbanicity": "urban", "population": 13532102.0, "prison_population": 75247.0, "proportion": 0.5560629087779563}, {"year": 1993, "urbanicity": "rural", "population": 470138.0, "prison_population": 2371.0, "proportion": 0.5043200081678145}, {"year": 1993, "urbanicity": "small/mid", "population": 4048390.0, "prison_population": 21753.0, "proportion": 0.5373247142691292}, {"year": 1993, "urbanicity": "suburban", "population": 2498914.0, "prison_population": 9528.0, "proportion": 0.38128563047787956}, {"year": 1993, "urbanicity": "urban", "population": 13539629.0, "prison_population": 82488.0, "proportion": 0.6092338276034004}, {"year": 1994, "urbanicity": "rural", "population": 473970.0, "prison_population": 2555.0, "proportion": 0.5390636538177521}, {"year": 1994, "urbanicity": "small/mid", "population": 4077312.0, "prison_population": 23686.0, "proportion": 0.5809219407295787}, {"year": 1994, "urbanicity": "suburban", "population": 2510968.0, "prison_population": 10674.0, "proportion": 0.42509502311459163}, {"year": 1994, "urbanicity": "urban", "population": 13531547.0, "prison_population": 85179.0, "proportion": 0.6294845666944068}, {"year": 1995, "urbanicity": "rural", "population": 479199.0, "prison_population": 2709.0, "proportion": 0.5653183750383453}, {"year": 1995, "urbanicity": "small/mid", "population": 4104342.0, "prison_population": 25960.0, "proportion": 0.6325008978296642}, {"year": 1995, "urbanicity": "suburban", "population": 2533811.0, "prison_population": 12297.0, "proportion": 0.48531638705491453}, {"year": 1995, "urbanicity": "urban", "population": 13544383.0, "prison_population": 91400.0, "proportion": 0.6748184837950906}, {"year": 1996, "urbanicity": "rural", "population": 486552.0, "prison_population": 2970.0, "proportion": 0.6104177970699945}, {"year": 1996, "urbanicity": "small/mid", "population": 4147737.0, "prison_population": 28721.0, "proportion": 0.6924498829120553}, {"year": 1996, "urbanicity": "suburban", "population": 2562789.0, "prison_population": 13744.0, "proportion": 0.5362907363813408}, {"year": 1996, "urbanicity": "urban", "population": 13635193.0, "prison_population": 97382.0, "proportion": 0.7141959780107257}, {"year": 1997, "urbanicity": "rural", "population": 497121.0, "prison_population": 3185.0, "proportion": 0.6406890877673644}, {"year": 1997, "urbanicity": "small/mid", "population": 4246733.0, "prison_population": 31543.0, "proportion": 0.7427591986592987}, {"year": 1997, "urbanicity": "suburban", "population": 2624773.0, "prison_population": 15096.0, "proportion": 0.5751354498084216}, {"year": 1997, "urbanicity": "urban", "population": 13888335.0, "prison_population": 103108.0, "proportion": 0.7424072071994231}, {"year": 1998, "urbanicity": "rural", "population": 504629.0, "prison_population": 3347.0, "proportion": 0.6632595431495217}, {"year": 1998, "urbanicity": "small/mid", "population": 4352543.0, "prison_population": 32312.0, "proportion": 0.7423706095494059}, {"year": 1998, "urbanicity": "suburban", "population": 2690168.0, "prison_population": 15536.0, "proportion": 0.5775104008374199}, {"year": 1998, "urbanicity": "urban", "population": 14184356.0, "prison_population": 106880.0, "proportion": 0.7535061866749537}, {"year": 1999, "urbanicity": "rural", "population": 511409.0, "prison_population": 3355.0, "proportion": 0.6560306916773072}, {"year": 1999, "urbanicity": "small/mid", "population": 4459947.0, "prison_population": 32868.0, "proportion": 0.7369594302353818}, {"year": 1999, "urbanicity": "suburban", "population": 2752007.0, "prison_population": 16261.0, "proportion": 0.5908778575054497}, {"year": 1999, "urbanicity": "urban", "population": 14455116.0, "prison_population": 107270.0, "proportion": 0.7420902052947898}, {"year": 2000, "urbanicity": "rural", "population": 518886.0, "prison_population": 3399.0, "proportion": 0.6550571801898682}, {"year": 2000, "urbanicity": "small/mid", "population": 4559861.0, "prison_population": 33385.0, "proportion": 0.7321495106978042}, {"year": 2000, "urbanicity": "suburban", "population": 2813488.0, "prison_population": 16903.0, "proportion": 0.6007845066337585}, {"year": 2000, "urbanicity": "urban", "population": 14690472.0, "prison_population": 106342.0, "proportion": 0.7238841611079617}, {"year": 2001, "urbanicity": "rural", "population": 526917.0, "prison_population": 3538.0, "proportion": 0.6714529992389693}, {"year": 2001, "urbanicity": "small/mid", "population": 4662707.0, "prison_population": 33348.0, "proportion": 0.715206853014783}, {"year": 2001, "urbanicity": "suburban", "population": 2880590.0, "prison_population": 16418.0, "proportion": 0.5699526833044619}, {"year": 2001, "urbanicity": "urban", "population": 14927435.0, "prison_population": 103606.0, "proportion": 0.6940643184847229}, {"year": 2002, "urbanicity": "rural", "population": 535658.0, "prison_population": 3758.0, "proportion": 0.7015670446441573}, {"year": 2002, "urbanicity": "small/mid", "population": 4763455.0, "prison_population": 34614.0, "proportion": 0.7266574366714916}, {"year": 2002, "urbanicity": "suburban", "population": 2929710.0, "prison_population": 17178.0, "proportion": 0.5863378969249516}, {"year": 2002, "urbanicity": "urban", "population": 15111004.0, "prison_population": 103931.0, "proportion": 0.6877835516422337}, {"year": 2003, "urbanicity": "rural", "population": 544773.0, "prison_population": 3948.0, "proportion": 0.7247055195466735}, {"year": 2003, "urbanicity": "small/mid", "population": 4857048.0, "prison_population": 35603.0, "proportion": 0.7330172565723049}, {"year": 2003, "urbanicity": "suburban", "population": 2981039.0, "prison_population": 17358.0, "proportion": 0.5822802049889317}, {"year": 2003, "urbanicity": "urban", "population": 15275918.0, "prison_population": 104941.0, "proportion": 0.6869701709579745}, {"year": 2004, "urbanicity": "rural", "population": 552082.0, "prison_population": 3997.0, "proportion": 0.7239866541564477}, {"year": 2004, "urbanicity": "small/mid", "population": 4941661.0, "prison_population": 36113.0, "proportion": 0.7307866727401982}, {"year": 2004, "urbanicity": "suburban", "population": 3037751.0, "prison_population": 17684.0, "proportion": 0.5821411959044701}, {"year": 2004, "urbanicity": "urban", "population": 15431934.0, "prison_population": 106025.0, "proportion": 0.6870493354883451}, {"year": 2005, "urbanicity": "rural", "population": 559061.0, "prison_population": 4065.0, "proportion": 0.7271120682716198}, {"year": 2005, "urbanicity": "small/mid", "population": 5015632.0, "prison_population": 36689.0, "proportion": 0.7314930600969131}, {"year": 2005, "urbanicity": "suburban", "population": 3091824.0, "prison_population": 18398.0, "proportion": 0.5950532759950113}, {"year": 2005, "urbanicity": "urban", "population": 15563696.0, "prison_population": 108662.0, "proportion": 0.6981760630636836}, {"year": 2006, "urbanicity": "rural", "population": 562332.0, "prison_population": 4203.0, "proportion": 0.7474232304048143}, {"year": 2006, "urbanicity": "small/mid", "population": 5082871.0, "prison_population": 37933.0, "proportion": 0.7462908265820636}, {"year": 2006, "urbanicity": "suburban", "population": 3132408.0, "prison_population": 19249.0, "proportion": 0.6145112641775912}, {"year": 2006, "urbanicity": "urban", "population": 15687632.0, "prison_population": 110921.0, "proportion": 0.7070601860115026}, {"year": 2007, "urbanicity": "rural", "population": 563415.0, "prison_population": 4018.0, "proportion": 0.7131510520664164}, {"year": 2007, "urbanicity": "small/mid", "population": 5138107.0, "prison_population": 37760.0, "proportion": 0.7349010053702657}, {"year": 2007, "urbanicity": "suburban", "population": 3166666.0, "prison_population": 18950.0, "proportion": 0.598421178614985}, {"year": 2007, "urbanicity": "urban", "population": 15808537.0, "prison_population": 111229.0, "proportion": 0.7036008455431392}, {"year": 2008, "urbanicity": "rural", "population": 562127.0, "prison_population": 3875.0, "proportion": 0.6893460018821369}, {"year": 2008, "urbanicity": "small/mid", "population": 5188993.0, "prison_population": 37175.0, "proportion": 0.7164203150784748}, {"year": 2008, "urbanicity": "suburban", "population": 3197052.0, "prison_population": 19341.0, "proportion": 0.6049635726913418}, {"year": 2008, "urbanicity": "urban", "population": 15973135.0, "prison_population": 111379.0, "proportion": 0.6972895427228281}, {"year": 2009, "urbanicity": "rural", "population": 560911.0, "prison_population": 3665.0, "proportion": 0.6534013417458384}, {"year": 2009, "urbanicity": "small/mid", "population": 5239552.0, "prison_population": 36996.0, "proportion": 0.7060909024282992}, {"year": 2009, "urbanicity": "suburban", "population": 3228581.0, "prison_population": 19300.0, "proportion": 0.5977858384225144}, {"year": 2009, "urbanicity": "urban", "population": 16150044.0, "prison_population": 109473.0, "proportion": 0.6778495464160965}, {"year": 2010, "urbanicity": "rural", "population": 560669.0, "prison_population": 3630.0, "proportion": 0.6474408251570891}, {"year": 2010, "urbanicity": "small/mid", "population": 5285079.0, "prison_population": 35836.0, "proportion": 0.6780598738448375}, {"year": 2010, "urbanicity": "suburban", "population": 3256250.0, "prison_population": 18769.0, "proportion": 0.5763992322456813}, {"year": 2010, "urbanicity": "urban", "population": 16276850.0, "prison_population": 105436.0, "proportion": 0.6477666133189162}, {"year": 2011, "urbanicity": "rural", "population": 560288.0, "prison_population": 3174.0, "proportion": 0.5664943743217773}, {"year": 2011, "urbanicity": "small/mid", "population": 5294621.0, "prison_population": 31932.0, "proportion": 0.6031026583394732}, {"year": 2011, "urbanicity": "suburban", "population": 3266342.0, "prison_population": 16742.0, "proportion": 0.5125611463833242}, {"year": 2011, "urbanicity": "urban", "population": 16311701.0, "prison_population": 97094.0, "proportion": 0.5952414159626883}, {"year": 2012, "urbanicity": "rural", "population": 555559.0, "prison_population": 2820.0, "proportion": 0.5075968528995121}, {"year": 2012, "urbanicity": "small/mid", "population": 5326391.0, "prison_population": 28541.0, "proportion": 0.5358412478543163}, {"year": 2012, "urbanicity": "suburban", "population": 3301381.0, "prison_population": 14650.0, "proportion": 0.4437536897437769}, {"year": 2012, "urbanicity": "urban", "population": 16480337.0, "prison_population": 88721.0, "proportion": 0.5383445739004001}, {"year": 2013, "urbanicity": "rural", "population": 544912.0, "prison_population": 2867.0, "proportion": 0.5261400005872507}, {"year": 2013, "urbanicity": "small/mid", "population": 5337829.0, "prison_population": 29553.0, "proportion": 0.5536520559201129}, {"year": 2013, "urbanicity": "suburban", "population": 3320813.0, "prison_population": 14535.0, "proportion": 0.4376940225179798}, {"year": 2013, "urbanicity": "urban", "population": 16618336.0, "prison_population": 88451.0, "proportion": 0.5322494382109015}, {"year": 2014, "urbanicity": "rural", "population": 535384.0, "prison_population": 2836.0, "proportion": 0.5297132525439684}, {"year": 2014, "urbanicity": "small/mid", "population": 5351825.0, "prison_population": 29656.0, "proportion": 0.5541287317877546}, {"year": 2014, "urbanicity": "suburban", "population": 3342779.0, "prison_population": 14525.0, "proportion": 0.43451870434749057}, {"year": 2014, "urbanicity": "urban", "population": 16747491.0, "prison_population": 87410.0, "proportion": 0.5219289265478633}, {"year": 2015, "urbanicity": "rural", "population": 529149.0, "prison_population": 2772.0, "proportion": 0.5238600091845587}, {"year": 2015, "urbanicity": "small/mid", "population": 5378534.0, "prison_population": 27831.0, "proportion": 0.5174458318939696}, {"year": 2015, "urbanicity": "suburban", "population": 3367644.0, "prison_population": 13548.0, "proportion": 0.4022990553633341}, {"year": 2015, "urbanicity": "urban", "population": 16871593.0, "prison_population": 82647.0, "proportion": 0.4898589006977586}]}}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-f05f1658c922eecf428cedcf1b26bffe"}, "mark": "boxplot", "encoding": {"color": {"type": "nominal", "field": "urbanicity"}, "x": {"type": "quantitative", "axis": {"title": "Percentage of Population Incarcerated [%]"}, "field": "proportion"}, "y": {"type": "nominal", "field": "urbanicity"}}, "title": "Normalized Incarcerated Population", "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-f05f1658c922eecf428cedcf1b26bffe": [{"year": 1991, "urbanicity": "rural", "population": 457419.0, "prison_population": 1954.0, "proportion": 0.42717945690931075}, {"year": 1991, "urbanicity": "small/mid", "population": 3928356.0, "prison_population": 18728.0, "proportion": 0.4767388698987567}, {"year": 1991, "urbanicity": "suburban", "population": 2435009.0, "prison_population": 7941.0, "proportion": 0.32611789114537154}, {"year": 1991, "urbanicity": "urban", "population": 13380982.0, "prison_population": 69863.0, "proportion": 0.5221066734862957}, {"year": 1992, "urbanicity": "rural", "population": 465768.0, "prison_population": 2123.0, "proportion": 0.455806324178561}, {"year": 1992, "urbanicity": "small/mid", "population": 4008774.0, "prison_population": 19942.0, "proportion": 0.4974588240694038}, {"year": 1992, "urbanicity": "suburban", "population": 2482704.0, "prison_population": 8398.0, "proportion": 0.3382602195026068}, {"year": 1992, "urbanicity": "urban", "population": 13532102.0, "prison_population": 75247.0, "proportion": 0.5560629087779563}, {"year": 1993, "urbanicity": "rural", "population": 470138.0, "prison_population": 2371.0, "proportion": 0.5043200081678145}, {"year": 1993, "urbanicity": "small/mid", "population": 4048390.0, "prison_population": 21753.0, "proportion": 0.5373247142691292}, {"year": 1993, "urbanicity": "suburban", "population": 2498914.0, "prison_population": 9528.0, "proportion": 0.38128563047787956}, {"year": 1993, "urbanicity": "urban", "population": 13539629.0, "prison_population": 82488.0, "proportion": 0.6092338276034004}, {"year": 1994, "urbanicity": "rural", "population": 473970.0, "prison_population": 2555.0, "proportion": 0.5390636538177521}, {"year": 1994, "urbanicity": "small/mid", "population": 4077312.0, "prison_population": 23686.0, "proportion": 0.5809219407295787}, {"year": 1994, "urbanicity": "suburban", "population": 2510968.0, "prison_population": 10674.0, "proportion": 0.42509502311459163}, {"year": 1994, "urbanicity": "urban", "population": 13531547.0, "prison_population": 85179.0, "proportion": 0.6294845666944068}, {"year": 1995, "urbanicity": "rural", "population": 479199.0, "prison_population": 2709.0, "proportion": 0.5653183750383453}, {"year": 1995, "urbanicity": "small/mid", "population": 4104342.0, "prison_population": 25960.0, "proportion": 0.6325008978296642}, {"year": 1995, "urbanicity": "suburban", "population": 2533811.0, "prison_population": 12297.0, "proportion": 0.48531638705491453}, {"year": 1995, "urbanicity": "urban", "population": 13544383.0, "prison_population": 91400.0, "proportion": 0.6748184837950906}, {"year": 1996, "urbanicity": "rural", "population": 486552.0, "prison_population": 2970.0, "proportion": 0.6104177970699945}, {"year": 1996, "urbanicity": "small/mid", "population": 4147737.0, "prison_population": 28721.0, "proportion": 0.6924498829120553}, {"year": 1996, "urbanicity": "suburban", "population": 2562789.0, "prison_population": 13744.0, "proportion": 0.5362907363813408}, {"year": 1996, "urbanicity": "urban", "population": 13635193.0, "prison_population": 97382.0, "proportion": 0.7141959780107257}, {"year": 1997, "urbanicity": "rural", "population": 497121.0, "prison_population": 3185.0, "proportion": 0.6406890877673644}, {"year": 1997, "urbanicity": "small/mid", "population": 4246733.0, "prison_population": 31543.0, "proportion": 0.7427591986592987}, {"year": 1997, "urbanicity": "suburban", "population": 2624773.0, "prison_population": 15096.0, "proportion": 0.5751354498084216}, {"year": 1997, "urbanicity": "urban", "population": 13888335.0, "prison_population": 103108.0, "proportion": 0.7424072071994231}, {"year": 1998, "urbanicity": "rural", "population": 504629.0, "prison_population": 3347.0, "proportion": 0.6632595431495217}, {"year": 1998, "urbanicity": "small/mid", "population": 4352543.0, "prison_population": 32312.0, "proportion": 0.7423706095494059}, {"year": 1998, "urbanicity": "suburban", "population": 2690168.0, "prison_population": 15536.0, "proportion": 0.5775104008374199}, {"year": 1998, "urbanicity": "urban", "population": 14184356.0, "prison_population": 106880.0, "proportion": 0.7535061866749537}, {"year": 1999, "urbanicity": "rural", "population": 511409.0, "prison_population": 3355.0, "proportion": 0.6560306916773072}, {"year": 1999, "urbanicity": "small/mid", "population": 4459947.0, "prison_population": 32868.0, "proportion": 0.7369594302353818}, {"year": 1999, "urbanicity": "suburban", "population": 2752007.0, "prison_population": 16261.0, "proportion": 0.5908778575054497}, {"year": 1999, "urbanicity": "urban", "population": 14455116.0, "prison_population": 107270.0, "proportion": 0.7420902052947898}, {"year": 2000, "urbanicity": "rural", "population": 518886.0, "prison_population": 3399.0, "proportion": 0.6550571801898682}, {"year": 2000, "urbanicity": "small/mid", "population": 4559861.0, "prison_population": 33385.0, "proportion": 0.7321495106978042}, {"year": 2000, "urbanicity": "suburban", "population": 2813488.0, "prison_population": 16903.0, "proportion": 0.6007845066337585}, {"year": 2000, "urbanicity": "urban", "population": 14690472.0, "prison_population": 106342.0, "proportion": 0.7238841611079617}, {"year": 2001, "urbanicity": "rural", "population": 526917.0, "prison_population": 3538.0, "proportion": 0.6714529992389693}, {"year": 2001, "urbanicity": "small/mid", "population": 4662707.0, "prison_population": 33348.0, "proportion": 0.715206853014783}, {"year": 2001, "urbanicity": "suburban", "population": 2880590.0, "prison_population": 16418.0, "proportion": 0.5699526833044619}, {"year": 2001, "urbanicity": "urban", "population": 14927435.0, "prison_population": 103606.0, "proportion": 0.6940643184847229}, {"year": 2002, "urbanicity": "rural", "population": 535658.0, "prison_population": 3758.0, "proportion": 0.7015670446441573}, {"year": 2002, "urbanicity": "small/mid", "population": 4763455.0, "prison_population": 34614.0, "proportion": 0.7266574366714916}, {"year": 2002, "urbanicity": "suburban", "population": 2929710.0, "prison_population": 17178.0, "proportion": 0.5863378969249516}, {"year": 2002, "urbanicity": "urban", "population": 15111004.0, "prison_population": 103931.0, "proportion": 0.6877835516422337}, {"year": 2003, "urbanicity": "rural", "population": 544773.0, "prison_population": 3948.0, "proportion": 0.7247055195466735}, {"year": 2003, "urbanicity": "small/mid", "population": 4857048.0, "prison_population": 35603.0, "proportion": 0.7330172565723049}, {"year": 2003, "urbanicity": "suburban", "population": 2981039.0, "prison_population": 17358.0, "proportion": 0.5822802049889317}, {"year": 2003, "urbanicity": "urban", "population": 15275918.0, "prison_population": 104941.0, "proportion": 0.6869701709579745}, {"year": 2004, "urbanicity": "rural", "population": 552082.0, "prison_population": 3997.0, "proportion": 0.7239866541564477}, {"year": 2004, "urbanicity": "small/mid", "population": 4941661.0, "prison_population": 36113.0, "proportion": 0.7307866727401982}, {"year": 2004, "urbanicity": "suburban", "population": 3037751.0, "prison_population": 17684.0, "proportion": 0.5821411959044701}, {"year": 2004, "urbanicity": "urban", "population": 15431934.0, "prison_population": 106025.0, "proportion": 0.6870493354883451}, {"year": 2005, "urbanicity": "rural", "population": 559061.0, "prison_population": 4065.0, "proportion": 0.7271120682716198}, {"year": 2005, "urbanicity": "small/mid", "population": 5015632.0, "prison_population": 36689.0, "proportion": 0.7314930600969131}, {"year": 2005, "urbanicity": "suburban", "population": 3091824.0, "prison_population": 18398.0, "proportion": 0.5950532759950113}, {"year": 2005, "urbanicity": "urban", "population": 15563696.0, "prison_population": 108662.0, "proportion": 0.6981760630636836}, {"year": 2006, "urbanicity": "rural", "population": 562332.0, "prison_population": 4203.0, "proportion": 0.7474232304048143}, {"year": 2006, "urbanicity": "small/mid", "population": 5082871.0, "prison_population": 37933.0, "proportion": 0.7462908265820636}, {"year": 2006, "urbanicity": "suburban", "population": 3132408.0, "prison_population": 19249.0, "proportion": 0.6145112641775912}, {"year": 2006, "urbanicity": "urban", "population": 15687632.0, "prison_population": 110921.0, "proportion": 0.7070601860115026}, {"year": 2007, "urbanicity": "rural", "population": 563415.0, "prison_population": 4018.0, "proportion": 0.7131510520664164}, {"year": 2007, "urbanicity": "small/mid", "population": 5138107.0, "prison_population": 37760.0, "proportion": 0.7349010053702657}, {"year": 2007, "urbanicity": "suburban", "population": 3166666.0, "prison_population": 18950.0, "proportion": 0.598421178614985}, {"year": 2007, "urbanicity": "urban", "population": 15808537.0, "prison_population": 111229.0, "proportion": 0.7036008455431392}, {"year": 2008, "urbanicity": "rural", "population": 562127.0, "prison_population": 3875.0, "proportion": 0.6893460018821369}, {"year": 2008, "urbanicity": "small/mid", "population": 5188993.0, "prison_population": 37175.0, "proportion": 0.7164203150784748}, {"year": 2008, "urbanicity": "suburban", "population": 3197052.0, "prison_population": 19341.0, "proportion": 0.6049635726913418}, {"year": 2008, "urbanicity": "urban", "population": 15973135.0, "prison_population": 111379.0, "proportion": 0.6972895427228281}, {"year": 2009, "urbanicity": "rural", "population": 560911.0, "prison_population": 3665.0, "proportion": 0.6534013417458384}, {"year": 2009, "urbanicity": "small/mid", "population": 5239552.0, "prison_population": 36996.0, "proportion": 0.7060909024282992}, {"year": 2009, "urbanicity": "suburban", "population": 3228581.0, "prison_population": 19300.0, "proportion": 0.5977858384225144}, {"year": 2009, "urbanicity": "urban", "population": 16150044.0, "prison_population": 109473.0, "proportion": 0.6778495464160965}, {"year": 2010, "urbanicity": "rural", "population": 560669.0, "prison_population": 3630.0, "proportion": 0.6474408251570891}, {"year": 2010, "urbanicity": "small/mid", "population": 5285079.0, "prison_population": 35836.0, "proportion": 0.6780598738448375}, {"year": 2010, "urbanicity": "suburban", "population": 3256250.0, "prison_population": 18769.0, "proportion": 0.5763992322456813}, {"year": 2010, "urbanicity": "urban", "population": 16276850.0, "prison_population": 105436.0, "proportion": 0.6477666133189162}, {"year": 2011, "urbanicity": "rural", "population": 560288.0, "prison_population": 3174.0, "proportion": 0.5664943743217773}, {"year": 2011, "urbanicity": "small/mid", "population": 5294621.0, "prison_population": 31932.0, "proportion": 0.6031026583394732}, {"year": 2011, "urbanicity": "suburban", "population": 3266342.0, "prison_population": 16742.0, "proportion": 0.5125611463833242}, {"year": 2011, "urbanicity": "urban", "population": 16311701.0, "prison_population": 97094.0, "proportion": 0.5952414159626883}, {"year": 2012, "urbanicity": "rural", "population": 555559.0, "prison_population": 2820.0, "proportion": 0.5075968528995121}, {"year": 2012, "urbanicity": "small/mid", "population": 5326391.0, "prison_population": 28541.0, "proportion": 0.5358412478543163}, {"year": 2012, "urbanicity": "suburban", "population": 3301381.0, "prison_population": 14650.0, "proportion": 0.4437536897437769}, {"year": 2012, "urbanicity": "urban", "population": 16480337.0, "prison_population": 88721.0, "proportion": 0.5383445739004001}, {"year": 2013, "urbanicity": "rural", "population": 544912.0, "prison_population": 2867.0, "proportion": 0.5261400005872507}, {"year": 2013, "urbanicity": "small/mid", "population": 5337829.0, "prison_population": 29553.0, "proportion": 0.5536520559201129}, {"year": 2013, "urbanicity": "suburban", "population": 3320813.0, "prison_population": 14535.0, "proportion": 0.4376940225179798}, {"year": 2013, "urbanicity": "urban", "population": 16618336.0, "prison_population": 88451.0, "proportion": 0.5322494382109015}, {"year": 2014, "urbanicity": "rural", "population": 535384.0, "prison_population": 2836.0, "proportion": 0.5297132525439684}, {"year": 2014, "urbanicity": "small/mid", "population": 5351825.0, "prison_population": 29656.0, "proportion": 0.5541287317877546}, {"year": 2014, "urbanicity": "suburban", "population": 3342779.0, "prison_population": 14525.0, "proportion": 0.43451870434749057}, {"year": 2014, "urbanicity": "urban", "population": 16747491.0, "prison_population": 87410.0, "proportion": 0.5219289265478633}, {"year": 2015, "urbanicity": "rural", "population": 529149.0, "prison_population": 2772.0, "proportion": 0.5238600091845587}, {"year": 2015, "urbanicity": "small/mid", "population": 5378534.0, "prison_population": 27831.0, "proportion": 0.5174458318939696}, {"year": 2015, "urbanicity": "suburban", "population": 3367644.0, "prison_population": 13548.0, "proportion": 0.4022990553633341}, {"year": 2015, "urbanicity": "urban", "population": 16871593.0, "prison_population": 82647.0, "proportion": 0.4898589006977586}]}}, {"mode": "vega-lite"});
 </script>
 </div>
 
@@ -14433,6 +14428,14 @@ dtype: int64</pre>
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>By using a box plot, we are able to observe that mean normalized incarcerated population for suburban areas is significanly lower than rural, small/mid, and urban. We are also able to observe that small/mid sized counties have the largest mean normalized incarcerated population.</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -14460,7 +14463,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[198]:</div>
+<div class="prompt input_prompt">In&nbsp;[291]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">race_scatter_line</span> <span class="o">+</span> <span class="n">race_scatter_1</span>
@@ -14476,18 +14479,18 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[198]:</div>
+    <div class="prompt output_prompt">Out[291]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-2af489fdd2cc4b4fa6f2b920d09ab539"></div>
+<div id="altair-viz-4bda929d338e4bf5b55983756163a158"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-2af489fdd2cc4b4fa6f2b920d09ab539") {
-      outputDiv = document.getElementById("altair-viz-2af489fdd2cc4b4fa6f2b920d09ab539");
+    if (outputDiv.id !== "altair-viz-4bda929d338e4bf5b55983756163a158") {
+      outputDiv = document.getElementById("altair-viz-4bda929d338e4bf5b55983756163a158");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -14553,7 +14556,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[200]:</div>
+<div class="prompt input_prompt">In&nbsp;[293]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">race_scatter_line_1</span> <span class="o">+</span> <span class="n">race_scatter_2</span>
@@ -14569,18 +14572,18 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[200]:</div>
+    <div class="prompt output_prompt">Out[293]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-7c38841b647549608b0cda7ea91e027b"></div>
+<div id="altair-viz-4cb882ebbf3e41e095679fdd3e01b368"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-7c38841b647549608b0cda7ea91e027b") {
-      outputDiv = document.getElementById("altair-viz-7c38841b647549608b0cda7ea91e027b");
+    if (outputDiv.id !== "altair-viz-4cb882ebbf3e41e095679fdd3e01b368") {
+      outputDiv = document.getElementById("altair-viz-4cb882ebbf3e41e095679fdd3e01b368");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -14656,7 +14659,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[203]:</div>
+<div class="prompt input_prompt">In&nbsp;[296]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">race_facet_fig_2</span>
@@ -14672,18 +14675,18 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[203]:</div>
+    <div class="prompt output_prompt">Out[296]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-8a594de05c114d8c827d1cba65295775"></div>
+<div id="altair-viz-489e2dbab4f646e6bf2f5d3f2cf544a6"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-8a594de05c114d8c827d1cba65295775") {
-      outputDiv = document.getElementById("altair-viz-8a594de05c114d8c827d1cba65295775");
+    if (outputDiv.id !== "altair-viz-489e2dbab4f646e6bf2f5d3f2cf544a6") {
+      outputDiv = document.getElementById("altair-viz-489e2dbab4f646e6bf2f5d3f2cf544a6");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -14759,7 +14762,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[206]:</div>
+<div class="prompt input_prompt">In&nbsp;[299]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">scm_fig_2</span>
@@ -14775,18 +14778,18 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[206]:</div>
+    <div class="prompt output_prompt">Out[299]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-fedc9259e2ca40b8be2e9ef59faa579e"></div>
+<div id="altair-viz-4e213c96007042a89d27216b45295b16"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-fedc9259e2ca40b8be2e9ef59faa579e") {
-      outputDiv = document.getElementById("altair-viz-fedc9259e2ca40b8be2e9ef59faa579e");
+    if (outputDiv.id !== "altair-viz-4e213c96007042a89d27216b45295b16") {
+      outputDiv = document.getElementById("altair-viz-4e213c96007042a89d27216b45295b16");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -14850,7 +14853,26 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Conclusion:">Conclusion:<a class="anchor-link" href="#Conclusion:">&#182;</a></h2>
+<h2 id="Takeaways:">Takeaways:<a class="anchor-link" href="#Takeaways:">&#182;</a></h2><ol>
+<li>About 10% of the racial data is missing from the dataset</li>
+<li>There is siginifcation overlap between the normalized incarcerated population for the urbanicity categories</li>
+<li>The Black population is overrepresented in the incarcerated population</li>
+<li>The Asian population is underrepresented in the incarcerated population</li>
+<li>The Native American population i soverrepresented in the rural incarcerated population</li>
+<li>There is approximatly equal representation for the Latio population in the incarcerated population</li>
+<li>An increase in the incarcerated Black population is correlated with a decrease in the incarcerated Latino population</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Issues-with-Analysis:">Issues with Analysis:<a class="anchor-link" href="#Issues-with-Analysis:">&#182;</a></h2><ol>
+<li>Issues with the dataset prevented calculations of the 'White' population</li>
+</ol>
+
 </div>
 </div>
 </div>
